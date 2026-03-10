@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/ai-newsletter/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com;
+      connect-src 'self'
+        https://api.anthropic.com
+        https://api.groq.com
+        https://generativelanguage.googleapis.com
+        https://openrouter.ai
+        https://gmail.googleapis.com
+        https://www.googleapis.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      frame-src https://accounts.google.com;
+      img-src 'self' data: https:;
+    " />
+    <title>PULSE — Personal Intelligence Briefing</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

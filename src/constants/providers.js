@@ -1,0 +1,68 @@
+export const PROVIDERS = {
+  groq: {
+    id: 'groq',
+    name: 'Groq',
+    badge: 'FREE',
+    description: 'Llama 3.3 70B — fast, free, great quality',
+    model: 'llama-3.3-70b-versatile',
+    baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
+    apiKeyUrl: 'https://console.groq.com/keys',
+    apiKeyPrefix: 'gsk_',
+    supportsWebSearch: false,
+    supportsStreaming: true,
+    isFree: true,
+    costPer1kTokens: 0,
+  },
+  gemini: {
+    id: 'gemini',
+    name: 'Google Gemini Flash',
+    badge: 'FREE',
+    description: 'Gemini 1.5 Flash — free, has built-in web grounding',
+    model: 'gemini-1.5-flash',
+    baseUrl:
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+    apiKeyUrl: 'https://aistudio.google.com/app/apikey',
+    apiKeyPrefix: 'AIza',
+    supportsWebSearch: true,
+    supportsStreaming: false,
+    isFree: true,
+    costPer1kTokens: 0,
+  },
+  claude: {
+    id: 'claude',
+    name: 'Claude Sonnet',
+    badge: 'PAID',
+    description: 'claude-sonnet-4-20250514 — best quality, costs ~$0.01/briefing',
+    model: 'claude-sonnet-4-20250514',
+    baseUrl: 'https://api.anthropic.com/v1/messages',
+    apiKeyUrl: 'https://console.anthropic.com/settings/keys',
+    apiKeyPrefix: 'sk-ant-',
+    supportsWebSearch: true,
+    supportsStreaming: true,
+    isFree: false,
+    costPer1kTokens: 0.003,
+  },
+  openrouter: {
+    id: 'openrouter',
+    name: 'OpenRouter',
+    badge: 'MIXED',
+    description: 'Access free & paid models via one key (Llama, Mistral, etc.)',
+    model: 'meta-llama/llama-3.3-70b-instruct:free',
+    baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+    apiKeyUrl: 'https://openrouter.ai/keys',
+    apiKeyPrefix: 'sk-or-',
+    supportsWebSearch: false,
+    supportsStreaming: true,
+    isFree: true,
+    costPer1kTokens: 0,
+  },
+};
+
+export const DEFAULT_PROVIDER = 'groq';
+
+export const PROVIDER_RATE_LIMITS = {
+  groq: { maxCallsPerHour: 25, maxCallsPerDay: 50 },
+  gemini: { maxCallsPerHour: 12, maxCallsPerDay: 40 },
+  claude: { maxCallsPerHour: 10, maxCallsPerDay: 30 },
+  openrouter: { maxCallsPerHour: 10, maxCallsPerDay: 30 },
+};

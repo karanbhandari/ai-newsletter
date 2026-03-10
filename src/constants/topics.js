@@ -1,0 +1,18 @@
+export const DEFAULT_TOPICS = [
+  'AI & Machine Learning',
+  'Software Engineering',
+  'Startups & Venture Capital',
+  'Crypto & Web3',
+  'Climate & Energy',
+  'US Economy',
+  'Global Markets',
+  'Canadian Economy',
+  'European Markets',
+  'Cybersecurity',
+  'Space & Aerospace',
+  'Biotech & Health',
+  'Consumer Tech',
+  'Robotics & Automation',
+  'Regulation & Policy',
+  'Remote Work & Future of Work',
+];

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0e0e0a;
+  --bg-surface: #161610;
+  --border: #2a2a1e;
+  --text-primary: #f5f0e0;
+  --text-secondary: #d4c9a8;
+  --text-muted: #888;
+  --accent: #f0a500;
+  --accent-subtle: rgba(240, 165, 0, 0.1);
+  --danger: #e05050;
+}
+
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Briefing content styles */
+.briefing-content h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.25rem;
+  color: #f0a500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #2a2a1e;
+}
+
+.briefing-content h3 {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  color: #d4c9a8;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.briefing-content p {
+  margin-bottom: 0.75rem;
+}
+
+.briefing-content ul,
+.briefing-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.briefing-content li {
+  margin-bottom: 0.35rem;
+}
+
+.briefing-content blockquote {
+  border-left: 3px solid #f0a500;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #d4c9a8;
+  background: rgba(240, 165, 0, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.briefing-content strong {
+  color: #f5f0e0;
+}
+
+.briefing-content a {
+  color: #f0a500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.briefing-content a:hover {
+  color: #f5f0e0;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
