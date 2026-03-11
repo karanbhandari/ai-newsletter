@@ -10,6 +10,7 @@ import ArchiveReader from './components/Archive/ArchiveReader.jsx';
 import ProviderSelector from './components/Settings/ProviderSelector.jsx';
 import ApiKeySetup from './components/Settings/ApiKeySetup.jsx';
 import { useAiClient } from './hooks/useAiClient.js';
+import { useGoogleAuth } from './hooks/useGoogleAuth.js';
 import {
   storeProfile,
   retrieveProfile,
@@ -46,6 +47,7 @@ export default function App() {
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   const ai = useAiClient();
+  const auth = useGoogleAuth();
 
   const setProfile = useCallback((p) => {
     setProfileState(p);
@@ -144,7 +146,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-pulse-bg">
-      <Header currentView={view} setView={setView} />
+      <Header currentView={view} setView={setView} auth={auth} />
 
       <main className="max-w-3xl mx-auto px-4 md:px-8 pt-20 pb-24 md:pb-12">
         {/* Home View */}
@@ -273,7 +275,7 @@ export default function App() {
         )}
 
         {/* Gmail View */}
-        {view === 'gmail' && <GmailDigest />}
+        {view === 'gmail' && <GmailDigest auth={auth} />}
 
         {/* Archive View */}
         {view === 'archive' && (
