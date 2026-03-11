@@ -14,7 +14,8 @@ export const DEPTH_OPTIONS = [
   { value: 'deep', label: 'Deep Dive', description: '4+ paragraphs with analysis' },
 ];
 
-export const GMAIL_SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+export const GMAIL_SCOPES =
+  'https://www.googleapis.com/auth/gmail.readonly email profile openid';
 
 export const DEFAULT_PROFILE = {
   name: '',

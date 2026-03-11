@@ -1,7 +1,8 @@
 import { retrieveActiveProvider } from '../../lib/storage.js';
 import { PROVIDERS } from '../../constants/providers.js';
+import UserMenu from '../Auth/UserMenu.jsx';
 
-export default function Header({ currentView, setView }) {
+export default function Header({ currentView, setView, auth }) {
   const providerId = retrieveActiveProvider();
   const provider = PROVIDERS[providerId];
 
@@ -40,7 +41,7 @@ export default function Header({ currentView, setView }) {
       </div>
 
       <div className="flex items-center gap-3">
-        <span className="font-mono text-xs text-pulse-muted">
+        <span className="hidden sm:inline font-mono text-xs text-pulse-muted">
           {provider.name}
           <span
             className={`ml-1.5 px-1.5 py-0.5 text-[10px] rounded ${
@@ -54,6 +55,13 @@ export default function Header({ currentView, setView }) {
             {provider.badge}
           </span>
         </span>
+        <UserMenu
+          user={auth.user}
+          isSignedIn={auth.isSignedIn}
+          loading={auth.loading}
+          onSignIn={auth.signIn}
+          onSignOut={auth.signOut}
+        />
       </div>
 
       {/* Mobile nav */}
