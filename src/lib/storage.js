@@ -45,14 +45,17 @@ export function storeGoogleClientId(clientId) {
 
 export function retrieveGoogleClientId() {
   const encoded = localStorage.getItem(KEY_NAMES.googleClientId);
-  if (!encoded) return null;
-  try {
-    const decoded = atob(encoded);
-    if (!decoded.startsWith(OBFUSCATION_SALT)) return null;
-    return decoded.slice(OBFUSCATION_SALT.length);
-  } catch {
-    return null;
+  if (encoded) {
+    try {
+      const decoded = atob(encoded);
+      if (decoded.startsWith(OBFUSCATION_SALT)) {
+        return decoded.slice(OBFUSCATION_SALT.length);
+      }
+    } catch {
+      // fall through to env var
+    }
   }
+  return import.meta.env.VITE_GOOGLE_CLIENT_ID || null;
 }
 
 export function clearGoogleClientId() {
